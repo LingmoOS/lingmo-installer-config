@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/LingmoOS/lingmo-installer-config
 
 Package: lingmo-installer-config
 Architecture: all
-Depends: calamares,
+Depends: lingmo-installer,
          rsync,
          cryptsetup,
          libglib2.0-bin,
