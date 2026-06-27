@@ -1,15 +1,15 @@
-Source: calamares-settings-lingmo
+Source: lingmo-installer-config
 Section: utils
 Priority: optional
 Maintainer: Lingmo OS Team <team@lingmo.org>
 Build-Depends: debhelper-compat (= 13), libglib2.0-bin
 Standards-Version: 4.6.2
 Rules-Requires-Root: no
-Homepage: https://github.com/LingmoOS/calamares-settings
-Vcs-Git: https://github.com/LingmoOS/calamares-settings.git
-Vcs-Browser: https://github.com/LingmoOS/calamares-settings
+Homepage: https://github.com/LingmoOS/lingmo-installer-config
+Vcs-Git: https://github.com/LingmoOS/lingmo-installer-config.git
+Vcs-Browser: https://github.com/LingmoOS/lingmo-installer-config
 
-Package: calamares-settings-lingmo
+Package: lingmo-installer-config
 Architecture: all
 Depends: calamares,
          rsync,
