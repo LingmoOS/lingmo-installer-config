@@ -32,7 +32,7 @@ Presentation
     Slide {
         Image {
             id: background1
-            source: "slide1.png"
+            source: "welcome.png"
             width: 467; height: 280
             fillMode: Image.PreserveAspectFit
             anchors.centerIn: parent
@@ -40,7 +40,7 @@ Presentation
         Text {
             anchors.horizontalCenter: background1.horizontalCenter
             anchors.top: background1.bottom
-            text: qsTr("Welcome to Debian GNU/Linux.<br/>"+
+            text: qsTr("Welcome to Lingmo OS.<br/>"+
                   "The rest of the installation is automated and should complete in a few minutes.")
             wrapMode: Text.WordWrap
             width: 600
