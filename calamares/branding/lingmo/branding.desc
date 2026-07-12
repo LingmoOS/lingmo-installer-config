@@ -19,9 +19,16 @@ sidebar: none
 navigation: widget
 
 images:
+    productLogo:         "logo.png"
     productIcon:         "logo.png"
     productWelcome:      "welcome.png"
 
+style:
+   SidebarBackground:        "#292F34"
+   SidebarText:              "#FFFFFF"
+   SidebarTextCurrent:       "#292F34"
+   SidebarBackgroundCurrent: "#0058a9"
+
 slideshow:               "show.qml"
 
-slideshowAPI: -1
+slideshowAPI: 1
