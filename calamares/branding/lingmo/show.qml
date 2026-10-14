@@ -32,7 +32,7 @@ Presentation
     Slide {
         Image {
             id: background1
-            source: "welcome.png"
+            source: "lingmo_logo.png"
             width: 467; height: 280
             fillMode: Image.PreserveAspectFit
             anchors.centerIn: parent
