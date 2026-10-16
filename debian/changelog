@@ -1,3 +1,10 @@
+lingmo-installer-config (5.0.6.lingmo5u1) unstable; urgency=medium
+
+  * Calamares shellprocess：介质目录名 live → core.lm
+    （与 lingmo-builder 的 LB_LIVE_DIR 保持一致；Calamares 不展开 shell 变量，故用字面量）
+
+ -- Lingmo OS Team <team@lingmo.org>  Fri, 16 Oct 2026 23:29:26 +0800
+
 lingmo-installer-config (5.0.5.lingmo5u1) unstable; urgency=medium
 
   * New release for Lingmo OS.
