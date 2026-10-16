@@ -1,3 +1,10 @@
+lingmo-installer-config (5.0.7.lingmo5u1) unstable; urgency=medium
+
+  * Calamares unpackfs：改为多层安装（core.lm 下的 6 个 *.img）
+    原来指向 live/filesystem.squashfs（既路径过期、也无法配合分层根文件系统）
+
+ -- Lingmo OS Team <team@lingmo.org>  Sat, 17 Oct 2026 00:26:20 +0800
+
 lingmo-installer-config (5.0.6.lingmo5u1) unstable; urgency=medium
 
   * Calamares shellprocess：介质目录名 live → core.lm
