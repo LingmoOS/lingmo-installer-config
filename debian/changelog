@@ -1,3 +1,11 @@
+lingmo-installer-config (5.0.9.lingmo5u1) unstable; urgency=medium
+
+  * Calamares unpackfs：给附加型层加 optional: true
+    firmware / apps / vendor / device 缺失时自动跳过（不使装机失败）；
+    system / kernel / desktop / lingmo / misc 仍为必需（缺失即为安装错误）。
+
+ -- Lingmo OS Team <team@lingmo.org>  Sat, 17 Oct 2026 00:36:08 +0800
+
 lingmo-installer-config (5.0.8.lingmo5u1) unstable; urgency=medium
 
   * Calamares unpackfs：层从 6 个细分为 9 个
