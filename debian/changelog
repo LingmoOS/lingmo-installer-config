@@ -1,3 +1,11 @@
+lingmo-installer-config (5.0.8.lingmo5u1) unstable; urgency=medium
+
+  * Calamares unpackfs：层从 6 个细分为 9 个
+    system / firmware / kernel / desktop / lingmo / apps / vendor / device / misc
+    （与 lingmo-builder 的 layer-images.conf 及钩子 ORDER 保持一致）
+
+ -- Lingmo OS Team <team@lingmo.org>  Sat, 17 Oct 2026 00:30:31 +0800
+
 lingmo-installer-config (5.0.7.lingmo5u1) unstable; urgency=medium
 
   * Calamares unpackfs：改为多层安装（core.lm 下的 6 个 *.img）
