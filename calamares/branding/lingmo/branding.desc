@@ -1,5 +1,20 @@
 ---
+# Lingmo OS 品牌配置（Calamares 3.3.x）
+# 键结构对齐 Calamares 上游 src/branding/default/branding.desc：
+# componentName / welcomeStyleCalamares / welcomeExpandingLogo / windowExpanding /
+# windowSize / windowPlacement / sidebar / navigation / strings / images / style /
+# slideshow / slideshowAPI。新增或删除顶层键前请先与上游比对，缺键会导致启动即退出。
 componentName:   lingmo
+
+welcomeStyleCalamares:   false
+welcomeExpandingLogo:    true
+
+windowExpanding:   normal
+windowSize:        800px,520px
+windowPlacement:   center
+
+sidebar:    widget
+navigation: widget
 
 strings:
     productName:         Lingmo OS
@@ -13,15 +28,18 @@ strings:
     supportUrl:          https://github.com/orgs/LingmoOS/discussions
     knownIssuesUrl:      https://github.com/orgs/LingmoOS/discussions
     releaseNotesUrl:     https://lingmo.org
-    donateUrl:           https://lingmo.org/zh/donate/
-
-sidebar: none
-navigation: widget
+    donateUrl:           https://lingmo.org/zh-cn/donate
 
 images:
     productIcon:         "logo.png"
+    productLogo:         "logo.png"
     productWelcome:      "welcome.png"
 
-slideshow:               "show.qml"
+style:
+    SidebarBackground:        "#292F34"
+    SidebarText:              "#FFFFFF"
+    SidebarTextCurrent:       "#292F34"
+    SidebarBackgroundCurrent: "#D35400"
 
-slideshowAPI: -1
+slideshow:               "show.qml"
+slideshowAPI: 2

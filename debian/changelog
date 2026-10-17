@@ -1,3 +1,15 @@
+lingmo-installer-config (5.0.10.lingmo5u1) unstable; urgency=medium
+
+  * Calamares branding：branding.desc 键结构对齐上游 3.3.x
+    补齐缺失的 welcomeStyleCalamares / welcomeExpandingLogo /
+    windowExpanding / windowSize / windowPlacement / style 与 images.productLogo，
+    sidebar 改为 widget，slideshowAPI 由 -1 改为 2。
+    原文件缺少上述键，Calamares 启动时报
+    FATAL in "/etc/calamares/branding/lingmo/branding.desc": invalid node。
+  * donateUrl 由不存在的 /zh/donate/ 改为 /zh-cn/donate。
+
+ -- Lingmo OS Team <team@lingmo.org>  Sat, 17 Oct 2026 14:10:23 +0800
+
 lingmo-installer-config (5.0.9.lingmo5u1) unstable; urgency=medium
 
   * Calamares unpackfs：给附加型层加 optional: true
