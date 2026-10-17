@@ -1,3 +1,10 @@
+lingmo-installer-config (5.0.11.lingmo5u1) unstable; urgency=medium
+
+  * Calamares branding：sidebar 恢复为 none（安装器不使用侧栏）。
+    上一版为对齐上游键集临时改成 widget，实际不需要侧栏。
+
+ -- Lingmo OS Team <team@lingmo.org>  Sat, 17 Oct 2026 14:11:29 +0800
+
 lingmo-installer-config (5.0.10.lingmo5u1) unstable; urgency=medium
 
   * Calamares branding：branding.desc 键结构对齐上游 3.3.x

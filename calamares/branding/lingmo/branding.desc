@@ -13,7 +13,7 @@ windowExpanding:   normal
 windowSize:        800px,520px
 windowPlacement:   center
 
-sidebar:    widget
+sidebar:    none
 navigation: widget
 
 strings:
