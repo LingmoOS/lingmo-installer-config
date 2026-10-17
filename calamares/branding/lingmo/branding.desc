@@ -19,10 +19,10 @@ navigation: widget
 strings:
     productName:         Lingmo OS
     shortProductName:    Lingmo
-    version:             5.0
+    version:             5.0 (lithium)
     shortVersion:        5.0
-    versionedName:       Lingmo 5.0
-    shortVersionedName:  Lingmo 5.0
+    versionedName:       Lingmo 5 (lithium)
+    shortVersionedName:  Lingmo 5
     bootloaderEntryName: Lingmo OS
     productUrl:          https://lingmo.org
     supportUrl:          https://github.com/orgs/LingmoOS/discussions
