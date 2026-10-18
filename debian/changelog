@@ -1,3 +1,18 @@
+lingmo-installer-config (5.0.12.lingmo5u1) unstable; urgency=medium
+
+  * 删除 shellprocess 模块，修复安装必然失败的问题。
+    该模块的脚本用了 shell 局部变量 $MNT / $FULL_SFS，而 Calamares 会先把
+    $NAME 当作 Calamares 变量展开，展开失败即报
+    “The commands use variables that are not defined. Missing variables are:
+    MNT,FULL_SFS,...”，安装直接终止；该展开发生在脚本执行之前，脚本里的
+    条件判断挡不住，因此普通安装同样失败。
+    该段代码本身也已失效：分层 ISO 的介质目录里没有 full.squashfs（全仓无任何
+    产出者），EXTRA_PKGS 与 /tmp/.full-install 也都没有消费者；分层内容本就由
+    unpackfs 全部解包进目标系统。
+  * unpackfs.conf 补充注释：optional 只用于四个附加层，基础层缺失会明确报错。
+
+ -- Lingmo OS Team <team@lingmo.org>  Sun, 18 Oct 2026 14:31:12 +0800
+
 lingmo-installer-config (5.0.11.lingmo5u1) unstable; urgency=medium
 
   * Calamares branding：sidebar 恢复为 none（安装器不使用侧栏）。
