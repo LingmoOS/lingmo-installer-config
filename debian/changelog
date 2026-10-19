@@ -1,3 +1,12 @@
+lingmo-installer-config (5.0.13.lingmo5u1) unstable; urgency=medium
+
+  * 修复安装时 dpkg-unsafe-io 步骤失败。
+    helpers/ 下的脚本在仓库里没有可执行位，经 debian/install 装到
+    /usr/share/calamares/helpers/ 后仍是 0644，Calamares 调用时报
+    Permission denied（退出码 126），安装中止。现为这些脚本补上 0755。
+
+ -- Lingmo OS Team <team@lingmo.org>  Mon, 19 Oct 2026 12:44:33 +0800
+
 lingmo-installer-config (5.0.12.lingmo5u1) unstable; urgency=medium
 
   * 删除 shellprocess 模块，修复安装必然失败的问题。
