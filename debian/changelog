@@ -1,3 +1,15 @@
+lingmo-installer-config (5.0.14+lingmo5u1) unstable; urgency=medium
+
+  * branding/lingmo: add stylesheet.qss to style QPushButton, QLineEdit,
+    QComboBox, QCheckBox, QScrollBar and the sidebar to match LingmoSDK's
+    visual language (rounded 10px corners, #3385FF accent, consistent
+    hover/pressed states).
+  * branding/lingmo: change accent colour from #D35400 (orange) to #3385FF
+    (LingmoOS blue) in branding.desc so the sidebar current-step highlight
+    matches the rest of the desktop.
+
+ -- Lingmo OS Team <team@lingmo.org>  Mon, 02 Nov 2026 17:00:00 +0800
+
 lingmo-installer-config (5.0.13.lingmo5u1) unstable; urgency=medium
 
   * 修复安装时 dpkg-unsafe-io 步骤失败。

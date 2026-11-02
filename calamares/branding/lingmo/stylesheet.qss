@@ -1,0 +1,338 @@
+/*
+ * Lingmo OS Calamares branding stylesheet
+ * Matches LingmoSDK Button visual language: rounded rect, accent blue primary,
+ * subtle secondary, consistent spacing and typography.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/* ─── Global ─────────────────────────────────────────────────────────────── */
+
+QWidget {
+    font-family: "Noto Sans", "Source Han Sans SC", sans-serif;
+    font-size: 10pt;
+    color: #1a1a1a;
+}
+
+QDialog, #mainApp {
+    background: #f5f5f7;
+}
+
+/* Dark mode follows the platform theme plugin's palette; the QSS below is
+ * written to use palette roles so both modes look right without duplication. */
+
+/* ─── Main window card ───────────────────────────────────────────────────── */
+
+#mainApp {
+    background: palette(window);
+    border-radius: 14px;
+}
+
+/* ─── Buttons — matching LingmoSDK Button ────────────────────────────────── */
+/*
+ * LingmoSDK Button visual spec:
+ *   - Rounded rect, mediumRadius = 10px
+ *   - Min size: 64×32
+ *   - Padding: largeSpacing = 12px horizontal
+ *   - Primary: accent fill (#3385FF), white text
+ *   - Secondary: subtle background, theme text color
+ *   - Hover: lighter; Pressed: darker
+ *   - Focus: 1px accent ring
+ */
+
+QPushButton {
+    border: none;
+    border-radius: 10px;
+    padding: 6px 20px;
+    min-height: 32px;
+    min-width: 64px;
+    font-weight: 500;
+    background: palette(button);
+    color: palette(button-text);
+}
+
+QPushButton:hover {
+    background: palette(midlight);
+}
+
+QPushButton:pressed {
+    background: palette(dark);
+}
+
+QPushButton:disabled {
+    color: palette(disabled, window-text);
+    background: palette(window);
+}
+
+/* Focus ring — LingmoSDK draws a 1px accent border on focused buttons */
+QPushButton:focus {
+    outline: none;
+}
+
+/* ─── Primary action button (Next / Install) ─────────────────────────────── */
+/*
+ * The "Next" button is the primary action, matching LingmoSDK's accent Button.
+ * Accent blue: #3385FF (LingmoOS default accent::blue)
+ */
+
+#view-button-next {
+    background: #3385FF;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#view-button-next:hover {
+    background: #2972e0;
+}
+
+#view-button-next:pressed {
+    background: #2560c4;
+}
+
+#view-button-next:disabled {
+    background: #a0c4ff;
+    color: #f0f0f0;
+}
+
+/* ─── Secondary buttons (Back, Cancel) ───────────────────────────────────── */
+/*
+ * Secondary buttons use a quiet background, matching LingmoSDK's default Button.
+ */
+
+#view-button-back,
+#view-button-cancel {
+    background: palette(button);
+    color: palette(button-text);
+}
+
+#view-button-back:hover,
+#view-button-cancel:hover {
+    background: palette(midlight);
+}
+
+#view-button-back:pressed,
+#view-button-cancel:pressed {
+    background: palette(dark);
+}
+
+#view-button-back:disabled,
+#view-button-cancel:disabled {
+    color: palette(disabled, window-text);
+    background: palette(window);
+}
+
+/* ─── Sidebar buttons (About, Debug) ─────────────────────────────────────── */
+
+#aboutButton,
+#debugButton {
+    background: transparent;
+    color: palette(window-text);
+    border-radius: 8px;
+    padding: 4px 12px;
+    min-height: 28px;
+    font-size: 9pt;
+}
+
+#aboutButton:hover,
+#debugButton:hover {
+    background: rgba(255, 255, 255, 26);  /* 10% white */
+}
+
+#aboutButton:pressed,
+#debugButton:pressed {
+    background: rgba(255, 255, 255, 40);
+}
+
+/* ─── Sidebar ────────────────────────────────────────────────────────────── */
+
+#sidebarApp {
+    background: #292F34;
+    color: #ffffff;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+}
+
+#logoApp {
+    background: transparent;
+}
+
+/* ─── Progress tree (sidebar step list) ───────────────────────────────────── */
+
+ProgressTreeView {
+    background: transparent;
+    color: rgba(255, 255, 255, 200);
+    border: none;
+    outline: none;
+}
+
+ProgressTreeView::item {
+    padding: 6px 8px;
+    border-radius: 8px;
+}
+
+ProgressTreeView::item:selected {
+    background: #3385FF;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+/* ─── Scroll areas ───────────────────────────────────────────────────────── */
+
+QScrollArea {
+    background: transparent;
+    border: none;
+}
+
+QScrollBar:vertical {
+    background: transparent;
+    width: 8px;
+    margin: 4px 0;
+}
+
+QScrollBar::handle:vertical {
+    background: palette(mid);
+    border-radius: 4px;
+    min-height: 24px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: palette(dark);
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0;
+    background: none;
+}
+
+QScrollBar:horizontal {
+    background: transparent;
+    height: 8px;
+    margin: 0 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background: palette(mid);
+    border-radius: 4px;
+    min-width: 24px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: palette(dark);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0;
+    background: none;
+}
+
+/* ─── Input widgets ──────────────────────────────────────────────────────── */
+
+QLineEdit, QPlainTextEdit, QTextEdit, QComboBox, QSpinBox, QDoubleSpinBox {
+    background: palette(base);
+    color: palette(text);
+    border: 1px solid palette(mid);
+    border-radius: 8px;
+    padding: 6px 10px;
+    selection-background-color: #3385FF;
+    selection-color: #ffffff;
+}
+
+QLineEdit:focus, QPlainTextEdit:focus, QTextEdit:focus,
+QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus {
+    border: 1px solid #3385FF;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 20px;
+}
+
+QComboBox QAbstractItemView {
+    background: palette(base);
+    color: palette(text);
+    border: 1px solid palette(mid);
+    border-radius: 8px;
+    padding: 4px;
+    selection-background-color: #3385FF;
+    selection-color: #ffffff;
+    outline: none;
+}
+
+/* ─── Checkboxes and radio buttons ────────────────────────────────────────── */
+
+QCheckBox, QRadioButton {
+    spacing: 8px;
+    background: transparent;
+}
+
+QCheckBox::indicator, QRadioButton::indicator {
+    width: 18px;
+    height: 18px;
+    border: 2px solid palette(mid);
+    background: transparent;
+}
+
+QCheckBox::indicator {
+    border-radius: 5px;
+}
+
+QRadioButton::indicator {
+    border-radius: 9px;
+}
+
+QCheckBox::indicator:checked, QRadioButton::indicator:checked {
+    background: #3385FF;
+    border-color: #3385FF;
+}
+
+QCheckBox::indicator:checked {
+    /* Checkmark via image would need a resource; use border trick */
+    background: #3385FF;
+    border-color: #3385FF;
+}
+
+/* ─── Group boxes ─────────────────────────────────────────────────────────── */
+
+QGroupBox {
+    border: 1px solid palette(mid);
+    border-radius: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
+    font-weight: 600;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    padding: 0 4px;
+}
+
+/* ─── Labels ─────────────────────────────────────────────────────────────── */
+
+QLabel {
+    background: transparent;
+}
+
+/* ─── Welcome page buttons ───────────────────────────────────────────────── */
+
+#donateButton,
+#supportButton,
+#releaseNotesButton,
+#knownIssuesButton,
+#aboutButton {
+    background: palette(button);
+    color: palette(button-text);
+    border-radius: 8px;
+    padding: 6px 14px;
+    min-height: 28px;
+}
+
+#donateButton:hover,
+#supportButton:hover,
+#releaseNotesButton:hover,
+#knownIssuesButton:hover {
+    background: palette(midlight);
+}

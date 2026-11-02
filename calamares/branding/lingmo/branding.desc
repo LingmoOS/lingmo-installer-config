@@ -38,8 +38,10 @@ images:
 style:
     SidebarBackground:        "#292F34"
     SidebarText:              "#FFFFFF"
-    SidebarTextCurrent:       "#292F34"
-    SidebarBackgroundCurrent: "#D35400"
+    SidebarTextCurrent:       "#FFFFFF"
+    SidebarBackgroundCurrent: "#3385FF"
+
+stylesheet: "stylesheet.qss"
 
 slideshow:               "show.qml"
 slideshowAPI: 2
