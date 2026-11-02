@@ -1,3 +1,16 @@
+lingmo-installer-config (5.0.15+lingmo5u1) unstable; urgency=medium
+
+  * branding/lingmo: complete input widget and progress bar styling:
+    - QLineEdit/QPlainTextEdit/QTextEdit: min-height 36px, 8px radius,
+      1.5px blue focus ring matching LingmoSDK TextField.
+    - QComboBox: same field style, custom drop-down arrow, popup list
+      with 10px radius, hover and selected states in accent blue.
+    - QSpinBox/QDoubleSpinBox: styled up/down buttons with hover tint.
+    - QProgressBar (#exec-progress): 8px pill track, accent blue fill
+      with subtle gradient, text hidden; generic bars 6px pill.
+
+ -- Lingmo OS Team <team@lingmo.org>  Mon, 02 Nov 2026 17:30:00 +0800
+
 lingmo-installer-config (5.0.14+lingmo5u1) unstable; urgency=medium
 
   * branding/lingmo: add stylesheet.qss to style QPushButton, QLineEdit,
