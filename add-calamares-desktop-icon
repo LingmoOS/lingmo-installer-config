@@ -24,6 +24,10 @@ else
     # Xfce needs this executable otherwise it complains, everything
     # else doesn't seem to care either way.
     chmod +x $DESKTOP/lingmo-installer-config.desktop
+    # Lingmo's file manager treats a desktop launcher as trusted only when
+    # this key is present; without it a double-click opens the file in a
+    # text editor instead of executing it.
+    echo "X-Lingmo-Trusted=true" >> $DESKTOP/lingmo-installer-config.desktop
 fi
 
 # Set desktop launcher as trusted under Xfce (See: #1037299)
