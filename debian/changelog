@@ -1,3 +1,11 @@
+lingmo-installer-config (5.0.15+lingmo5u3) unstable; urgency=medium
+
+  * Require only nonempty passwords and disable the first-boot OOBE service.
+  * Clean Live markers and all local APT sources using the explicit target root.
+  * Add installed-system cleanup and login regression tests.
+
+ -- Lingmo OS Team <team@lingmo.org>  Mon, 09 Nov 2026 12:00:00 +0800
+
 lingmo-installer-config (5.0.15+lingmo5u2) unstable; urgency=medium
 
   * Enable timezone and user creation pages with target configuration jobs.

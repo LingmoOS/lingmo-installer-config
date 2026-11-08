@@ -1,33 +1,40 @@
-#!/bin/sh
+#!/usr/bin/python3
+"""Mount temporary installation media in the target and remove it reliably."""
+from pathlib import Path
+import os
+import subprocess
+import sys
 
-CHROOT=$(mount | grep proc | grep calamares | awk '{print $3}' | sed -e "s#/proc##g")
-KNOWN_MEDIUM_PATHS="/run/live/medium /run/initramfs/live"
-RELEASE="trixie"
+MEDIUM_PATHS = ("/run/live/medium", "/run/initramfs/live")
 
-# Support both dracut and initramfs configurations to avoid substitutions
-# in live-build, see: #1089618
-for path in $KNOWN_MEDIUM_PATHS; do
-    if [ "$(mount | grep $path | cut -f3 -d" ")" = "$path" ]; then
-        MEDIUM_PATH=$path
-    fi
-done
 
-if [ "$1" = "-u" ]; then
-    umount $CHROOT/$MEDIUM_PATH
-    rm $CHROOT/etc/apt/sources.list.d/LINGMO_INSTALLER.list
-    chroot $CHROOT apt-get update
-    exit 0
-fi
+def configure(value, unmount=False, run=subprocess.run):
+    root = Path(value).resolve(strict=True)
+    if root == Path("/") or not (root/"etc").is_dir():
+        raise ValueError("Refusing invalid installation root")
+    source = root/"etc/apt/sources.list.d/LINGMO_INSTALLER.list"
+    if not source.resolve().is_relative_to(root): raise ValueError("Source path escapes target")
+    if unmount:
+        # Never update APT here: other copied Live sources are cleaned by
+        # sources-final next; offline cleanup must not depend on a network.
+        for medium in MEDIUM_PATHS:
+            target = root/medium.lstrip("/")
+            if not target.resolve().is_relative_to(root): raise ValueError("Mount path escapes target")
+            if os.path.ismount(target): run(["umount", str(target)], check=True)
+        source.unlink(missing_ok=True)
+        return
+    medium = next((p for p in MEDIUM_PATHS if os.path.ismount(p)), None)
+    if medium is None: raise RuntimeError("Installation medium is not mounted")
+    target = root/medium.lstrip("/")
+    if not target.resolve().is_relative_to(root): raise ValueError("Mount path escapes target")
+    target.mkdir(parents=True, exist_ok=True)
+    run(["mount", "--bind", medium, str(target)], check=True)
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_text("deb [trusted=yes] file:{} trixie main\n".format(medium))
+    run(["chroot", str(root), "apt-get", "-o", "Dir::Etc::sourcelist=sources.list.d/LINGMO_INSTALLER.list",
+         "-o", "Dir::Etc::sourceparts=-", "-o", "APT::Get::List-Cleanup=0", "update"], check=True)
 
-# Remove the base sources, we will configure sources in a later phase
-rm -f $CHROOT/etc/apt/sources.list.d/base.list
 
-mkdir -p $CHROOT/$MEDIUM_PATH
-mount --bind $MEDIUM_PATH $CHROOT/$MEDIUM_PATH
-echo "deb [trusted=yes] file:$MEDIUM_PATH $RELEASE main" > $CHROOT/etc/apt/sources.list.d/LINGMO_INSTALLER.list
-chroot $CHROOT apt-get update
-# Attempt safest way to remove cruft
-rmdir $CHROOT/run/live/medium
-rmdir $CHROOT/run/live
-
-exit 0
+if __name__ == "__main__":
+    if len(sys.argv) not in (2,3): raise SystemExit("usage: calamares-sources-media TARGET_ROOT [-u]")
+    configure(sys.argv[1], len(sys.argv)==3 and sys.argv[2]=="-u")

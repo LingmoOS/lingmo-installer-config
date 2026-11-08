@@ -1,6 +1,6 @@
 ---
-type:       "job"
-name:       "sources-media"
-interface:  "process"
-command:    "/usr/share/calamares/helpers/calamares-sources-media"
-timeout:    600
+type: job
+name: sources-media
+interface: python
+script: main.py
+noconfig: true
